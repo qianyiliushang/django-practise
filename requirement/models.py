@@ -1,6 +1,7 @@
 # coding:utf-8
 import sys
 from django.db import models
+from django.utils import timezone
 
 reload(sys)
 sys.setdefaultencoding('utf-8')
@@ -8,7 +9,7 @@ sys.setdefaultencoding('utf-8')
 
 # Create your models here.
 class Requirement(models.Model):
-    enroll_date = models.DateTimeField("录入时间")
+    enroll_date = models.DateTimeField("录入时间", default=timezone.datetime)
     pd_owner = models.CharField("产品负责人", max_length=20)
     business_type = models.CharField("业务类型", max_length=100)
     requirement_desc = models.TextField('需求描述')
