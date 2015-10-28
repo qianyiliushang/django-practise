@@ -38,8 +38,11 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'polls',
+<<<<<<< HEAD
     'requirement',
     'newsletter',
+=======
+>>>>>>> parent of 1fa39df... update
 )
 
 MIDDLEWARE_CLASSES = (
