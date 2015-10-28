@@ -15,7 +15,7 @@ sys.setdefaultencoding('utf-8')
 
 
 class IndexView(generic.ListView):
-    template_name = 'polls/index.html'
+    template_name = '../templates/polls/index.html'
     context_object_name = 'latest_question_list'
 
     def get_queryset(self):
@@ -25,7 +25,7 @@ class IndexView(generic.ListView):
 
 class DetailView(generic.DetailView):
     model = Question
-    template_name = 'polls/detail.html'
+    template_name = '../templates/polls/detail.html'
 
     def get_queryset(self):
         return Question.objects.filter(pub_date__lte=timezone.now())
@@ -33,7 +33,7 @@ class DetailView(generic.DetailView):
 
 class ResultsView(generic.DetailView):
     model = Question
-    template_name = 'polls/results.html'
+    template_name = '../templates/polls/results.html'
 
 
 # Create your views here.
@@ -60,7 +60,7 @@ def vote(request, question_id):
     try:
         selected_choice = p.choice_set.get(pk=request.POST['choice'])
     except (KeyError, Choice.DoesNotExist):
-        return render(request, 'polls/detail.html', {'question': p, 'error_message': '请做出选择'})
+        return render(request, '../templates/polls/detail.html', {'question': p, 'error_message': '请做出选择'})
     else:
         selected_choice.votes += 1
         selected_choice.save()

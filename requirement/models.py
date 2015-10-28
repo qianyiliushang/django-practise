@@ -26,7 +26,7 @@ class Requirement(models.Model):
     comments = models.TextField('备注', blank=True, null=True)
 
     def was_resolved_on_time(self):
-        #now = timezone.now()
+        # now = timezone.now()
         now = datetime.date.today()
         return self.actual_solute_date == now
         # return now - datetime.timedelta(days=1) <= self.enroll_date <= now
@@ -42,4 +42,4 @@ class BugsOnLine(models.Model):
 
     report_date = models.DateTimeField("提交时间", auto_now_add=True)
     pd_owner = models.CharField("产品负责人", max_length=20, blank=True, null=True)
-    bug_status =models.CharField("状态")
+    bug_status = models.CharField("状态", max_length=20)
